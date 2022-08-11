@@ -66,14 +66,26 @@ app.use('/api/note', noteRoutes)
 
 const mongoURI = process.env.MONGO_URL
 
-mongoose.connect(mongoURI)
-    .then(() => {
-        console.log('Connected to DB')
 
-        app.listen(4000, () => {
-            console.log(`Server listening on port ${process.env.PORT}....`)
-        })
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+
+mongoose.Promise = global.Promise;
+    mongoose.set('useNewUrlParser', true);
+    mongoose.set('useFindAndModify', false);
+    mongoose.set('useCreateIndex', true)
+    
+    mongoose.connect(mongoUrl, { useUnifiedTopology: true })
+    .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
+    .catch((err) => { error('MongoDB connection error: %s \n', err); })
+
+// // connect to db
+// mongoose.connect(mongoURI)
+//     .then(() => {
+//         console.log('Connected to DB')
+
+//         app.listen(4000, () => {
+//             console.log(`Server listening on port ${process.env.PORT}....`)
+//         })
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     })
