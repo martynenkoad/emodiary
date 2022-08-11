@@ -45,7 +45,12 @@ var mongoUrl = '"mongodb://localhost:27017"'
     mongoose.set('useCreateIndex', true)
     
     mongoose.connect(mongoUrl, { useUnifiedTopology: true })
-    .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
+    .then(() => { 
+        log('Connected to MongoDB: %s \n ', mongoUrl) 
+        app.listen(4000, () => {
+            console.log(`Server listening on port ${process.env.PORT}....`)
+            })
+    }) 
     .catch((err) => { error('MongoDB connection error: %s \n', err); })
 
 
@@ -55,16 +60,16 @@ var mongoUrl = '"mongodb://localhost:27017"'
 //         console.log('Connected to DB')
 
 
-mongoUrl = process.env.MONGO_URL
+// mongoUrl = process.env.MONGO_URL
 
-mongoose.Promise = global.Promise;
-    mongoose.set('useNewUrlParser', true);
-    mongoose.set('useFindAndModify', false);
-    mongoose.set('useCreateIndex', true)
+// mongoose.Promise = global.Promise;
+//     mongoose.set('useNewUrlParser', true);
+//     mongoose.set('useFindAndModify', false);
+//     mongoose.set('useCreateIndex', true)
     
-    mongoose.connect(mongoUrl, { useUnifiedTopology: true })
-    .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
-    .catch((err) => { error('MongoDB connection error: %s \n', err); })
+//     mongoose.connect(mongoUrl, { useUnifiedTopology: true })
+//     .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
+//     .catch((err) => { error('MongoDB connection error: %s \n', err); })
 
 // // connect to db
 // mongoose.connect(mongoURI)
