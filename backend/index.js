@@ -61,7 +61,12 @@ mongoose.Promise = global.Promise;
     mongoose.set('useCreateIndex', true)
     
     mongoose.connect(mongoUrl, { useUnifiedTopology: true })
-    .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
+    .then(() => { 
+        console.log('Connected to MongoDB: %s \n ', mongoUrl) 
+        app.listen(4000, () => {
+            console.log('Server listening on mport 4000....')
+        })
+    }) 
     .catch((err) => { error('MongoDB connection error: %s \n', err); })
 
 // // connect to db
