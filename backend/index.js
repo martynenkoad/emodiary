@@ -29,8 +29,8 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/api/user', userRoutes)
-app.use('/api/note', noteRoutes)
+app.use(':4000/api/user', userRoutes)
+app.use(':4000/api/note', noteRoutes)
 
 // connection string
 //mongoURI = 'mongodb+srv://nastya:eIudKM89AJO51exB@cluster0.we8xbbc.mongodb.net/?retryWrites=true&w=majority'
@@ -54,6 +54,9 @@ mongoose.connect('mongodb://localhost:27017/emo' ,{useNewUrlParser: true})
 const connection = mongoose.connection
 connection.on('connected', () => {
     console.log('db is connected succesfully')
+    app.listen(4000, () => {
+        console.log('server on 4000')
+    })
 })
 connection.on('disconnected', () => {
     console.log('db is disconnected succesfully')

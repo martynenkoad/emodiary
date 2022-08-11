@@ -16,7 +16,7 @@ export default function MainPage() {
     const [idOfNote, setId] = React.useState(undefined)
 
     const fetchNotes = async () => {
-        const response = await fetch('/api/note/', {
+        const response = await fetch(':4000/api/note/', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${user.token}`
@@ -38,7 +38,7 @@ export default function MainPage() {
 
     async function getNote(id) {
         setId(id)
-        const response = await fetch('/api/note/' + id, {
+        const response = await fetch(':4000/api/note/' + id, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${user.token}`,
@@ -77,7 +77,7 @@ export default function MainPage() {
         }
 
         const newNote = { title, note }
-        const response = await fetch('/api/note', {
+        const response = await fetch(':4000/api/note', {
           method: 'POST',
           body: JSON.stringify(newNote),
           headers: {
@@ -107,7 +107,7 @@ export default function MainPage() {
           return
         }
         const updatedNote = { title, note }
-        const response = await fetch('/api/note/' + idOfNote, {
+        const response = await fetch(':4000/api/note/' + idOfNote, {
           method: 'PATCH',
           headers: {
               'Content-Type': 'application/json',
