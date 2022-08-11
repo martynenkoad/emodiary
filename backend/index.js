@@ -37,16 +37,9 @@ app.use('/api/note', noteRoutes)
 
 
 var mongoUrl = '"mongodb://localhost:27017"'
-    var mongoose = require('mongoose')
-    // updated 2021
-    mongoose.Promise = global.Promise;
-    mongoose.set('useNewUrlParser', true);
-    mongoose.set('useFindAndModify', false);
-    mongoose.set('useCreateIndex', true)
-    
     mongoose.connect(mongoUrl, { useUnifiedTopology: true })
     .then(() => { 
-        log('Connected to MongoDB: %s \n ', mongoUrl) 
+        console.log('Connected to MongoDB: %s \n ', mongoUrl) 
         app.listen(4000, () => {
             console.log(`Server listening on port ${process.env.PORT}....`)
             })
