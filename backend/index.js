@@ -37,7 +37,7 @@ app.use('/api/note', noteRoutes)
 
 
 var mongoUrl = '"mongodb://localhost:27017"'
-    mongoose.connect(mongoUrl, { useUnifiedTopology: true })
+    mongoose.connect(mongoUrl)
     .then(() => { 
         console.log('Connected to MongoDB: %s \n ', mongoUrl) 
         app.listen(4000, () => {
