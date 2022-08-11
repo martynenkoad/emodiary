@@ -36,33 +36,28 @@ app.use('/api/note', noteRoutes)
 //mongoURI = 'mongodb+srv://nastya:eIudKM89AJO51exB@cluster0.we8xbbc.mongodb.net/?retryWrites=true&w=majority'
 
 
-var mongoUrl = '"mongodb://localhost:27017"'
-    mongoose.connect(mongoUrl)
-    .then(() => { 
-        console.log('Connected to MongoDB: %s \n ', mongoUrl) 
-        app.listen(4000, () => {
-            console.log(`Server listening on port ${process.env.PORT}....`)
-            })
-    }) 
-    .catch((err) => { error('MongoDB connection error: %s \n', err); })
-
-
-// connect to db
-// mongoose.connect(mongoURI)
-//     .then(() => {
-//         console.log('Connected to DB')
-
-
-// mongoUrl = process.env.MONGO_URL
-
-// mongoose.Promise = global.Promise;
-//     mongoose.set('useNewUrlParser', true);
-//     mongoose.set('useFindAndModify', false);
-//     mongoose.set('useCreateIndex', true)
-    
-//     mongoose.connect(mongoUrl, { useUnifiedTopology: true })
-//     .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
+// var mongoUrl = '"mongodb://localhost:27017"'
+//     mongoose.connect(mongoUrl)
+//     .then(() => { 
+//         console.log('Connected to MongoDB: %s \n ', mongoUrl) 
+//         app.listen(4000, () => {
+//             console.log(`Server listening on port ${process.env.PORT}....`)
+//             })
+//     }) 
 //     .catch((err) => { error('MongoDB connection error: %s \n', err); })
+
+
+
+mongoUrl = process.env.MONGO_URL
+
+mongoose.Promise = global.Promise;
+    mongoose.set('useNewUrlParser', true);
+    mongoose.set('useFindAndModify', false);
+    mongoose.set('useCreateIndex', true)
+    
+    mongoose.connect(mongoUrl, { useUnifiedTopology: true })
+    .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
+    .catch((err) => { error('MongoDB connection error: %s \n', err); })
 
 // // connect to db
 // mongoose.connect(mongoURI)
