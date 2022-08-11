@@ -35,7 +35,7 @@ app.use('/api/note', noteRoutes)
 // connection string
 //mongoURI = 'mongodb+srv://nastya:eIudKM89AJO51exB@cluster0.we8xbbc.mongodb.net/?retryWrites=true&w=majority'
 
-
+const mongoURI = process.env.MONGO_URL
 
 mongoose.connect('mongodb://localhost:27017/emo' ,{useNewUrlParser: true})
 const connection = mongoose.connection
@@ -51,7 +51,7 @@ connection.on('disconnected', () => {
 connection.on('error', console.error.bind(console, 'connection error: '))
 // // connect to db
 
-const mongoURI = process.env.MONGO_URL
+
 
 
 
