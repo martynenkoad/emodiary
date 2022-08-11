@@ -48,29 +48,32 @@ app.use('/api/note', noteRoutes)
 
 
 
-mongoUrl = process.env.MONGO_URL
+// mongoUrl = process.env.MONGO_URL
 
-mongoose.connect('mongodb://localhost:27017/emo' ,{useNewUrlParser: true})
-const connection = mongoose.connection
-connection.on('connected', () => {
-    console.log('db is connected succesfully')
-    app.listen(4000, () => {
-        console.log('server on 4000')
-    })
-})
-connection.on('disconnected', () => {
-    console.log('db is disconnected succesfully')
-})
-connection.on('error', console.error.bind(console, 'connection error: '))
+// mongoose.connect('mongodb://localhost:27017/emo' ,{useNewUrlParser: true})
+// const connection = mongoose.connection
+// connection.on('connected', () => {
+//     console.log('db is connected succesfully')
+//     app.listen(4000, () => {
+//         console.log('server on 4000')
+//     })
+// })
+// connection.on('disconnected', () => {
+//     console.log('db is disconnected succesfully')
+// })
+// connection.on('error', console.error.bind(console, 'connection error: '))
 // // connect to db
-// mongoose.connect(mongoURI)
-//     .then(() => {
-//         console.log('Connected to DB')
 
-//         app.listen(4000, () => {
-//             console.log(`Server listening on port ${process.env.PORT}....`)
-//         })
-//     })
-//     .catch((error) => {
-//         console.log(error)
-//     })
+const mongoURI = process.env.MONGO_URL
+
+mongoose.connect(mongoURI)
+    .then(() => {
+        console.log('Connected to DB')
+
+        app.listen(4000, () => {
+            console.log(`Server listening on port ${process.env.PORT}....`)
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    })
