@@ -50,15 +50,15 @@ app.use('/api/note', noteRoutes)
 
 mongoUrl = process.env.MONGO_URL
 
-mongoose.Promise = global.Promise;
-    mongoose.set('useNewUrlParser', true);
-    mongoose.set('useFindAndModify', false);
-    mongoose.set('useCreateIndex', true)
-    
-    mongoose.connect(mongoUrl, { useUnifiedTopology: true })
-    .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
-    .catch((err) => { error('MongoDB connection error: %s \n', err); })
-
+mongoose.connect('mongodb://localhost:27017/emo' ,{useNewUrlParser: true})
+const connection = mongoose.connection
+connection.on('connected', () => {
+    console.log('db is connected succesfully')
+})
+connection.on('disconnected', () => {
+    console.log('db is disconnected succesfully')
+})
+connection.on('error', console.error.bind(console, 'connection error: '))
 // // connect to db
 // mongoose.connect(mongoURI)
 //     .then(() => {
