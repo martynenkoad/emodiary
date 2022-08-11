@@ -1,5 +1,5 @@
 {
-  "proxy": "https://localhost:4000",
+  "proxy": "https://emome.qamachine.com:4000",
   "name": "front",
   "version": "0.1.0",
   "private": true,
