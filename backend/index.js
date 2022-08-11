@@ -29,8 +29,8 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use(':4000/api/user', userRoutes)
-app.use(':4000/api/note', noteRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/note', noteRoutes)
 
 // connection string
 //mongoURI = 'mongodb+srv://nastya:eIudKM89AJO51exB@cluster0.we8xbbc.mongodb.net/?retryWrites=true&w=majority'
