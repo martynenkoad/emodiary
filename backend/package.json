@@ -1,4 +1,5 @@
 {
+  "proxy": "https://emome.qamachine.com",
   "name": "backend",
   "version": "1.0.0",
   "description": "Emo Diary | Backend",
