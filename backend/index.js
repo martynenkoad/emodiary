@@ -35,16 +35,15 @@ app.use('/api/note', noteRoutes)
 // connection string
 //mongoURI = 'mongodb+srv://nastya:eIudKM89AJO51exB@cluster0.we8xbbc.mongodb.net/?retryWrites=true&w=majority'
 
-mongoUrl = process.env.mongoURL
+mongoUrl = process.env.MONGO_URL
 
 mongoose.Promise = global.Promise;
-    mongoose.set('useNewUrlParser', true);
-    mongoose.set('useFindAndModify', false);
-    mongoose.set('useCreateIndex', true)
+
+console.log('So, now i am trying to connect to:', mongoUrl);
     
     mongoose.connect(mongoUrl, { useUnifiedTopology: true })
-    .then(() => { log('Connected to MongoDB: %s \n ', mongoUrl) }) 
-    .catch((err) => { error('MongoDB connection error: %s \n', err); })
+    .then(() => { console.log('Connected to MongoDB: ', mongoUrl) }) 
+    .catch((err) => { console.error('MongoDB connection error: ', err); })
 
 // // connect to db
 // mongoose.connect(mongoURI)
