@@ -36,19 +36,6 @@ app.use('/api/note', noteRoutes)
 //mongoURI = 'mongodb+srv://nastya:eIudKM89AJO51exB@cluster0.we8xbbc.mongodb.net/?retryWrites=true&w=majority'
 
 
-// var mongoUrl = '"mongodb://localhost:27017"'
-//     mongoose.connect(mongoUrl)
-//     .then(() => { 
-//         console.log('Connected to MongoDB: %s \n ', mongoUrl) 
-//         app.listen(4000, () => {
-//             console.log(`Server listening on port ${process.env.PORT}....`)
-//             })
-//     }) 
-//     .catch((err) => { error('MongoDB connection error: %s \n', err); })
-
-
-
-// mongoUrl = process.env.MONGO_URL
 
 // mongoose.connect('mongodb://localhost:27017/emo' ,{useNewUrlParser: true})
 // const connection = mongoose.connection
