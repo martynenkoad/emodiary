@@ -28,7 +28,7 @@ export default function NotesAside(props) {
             console.log(json)
             dispatch({ type: 'DELETE_NOTE', payload: json })
         }
-	window.location.reload(false)
+        window.location.reload(false)
     } 
 
     
