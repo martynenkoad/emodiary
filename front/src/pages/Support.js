@@ -20,7 +20,7 @@ export default function Support() {
             <p><a className="link" href={secLink}>Mental Health Support Resources</a></p>
             <p><a className="link" href={thirdLink}>Contact to the App Creator {'(me <3)'}</a></p>            
           </div>
-        </div>
+        </div> 
         </div>
     ) 
 }
