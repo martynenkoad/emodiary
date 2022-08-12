@@ -11,7 +11,7 @@ export default function Support() {
     const thirdLink= 'https://www.instagram.com/nastyaemo4'
     return (
       <div>
-        <div className="support">
+        <div className="support"> 
           <div className="support-img column">
             <img className="support-img" src={imgUrl} alt="Cute Plasters"/>
           </div>

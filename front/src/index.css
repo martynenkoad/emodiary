@@ -513,7 +513,7 @@ body {
   text-transform: uppercase;
   font-family: 'Berkshire Swash', cursive;
   margin-bottom: 6px;
-}
+} 
 
 @media (max-width: 570px) {
   .home--work-section {
