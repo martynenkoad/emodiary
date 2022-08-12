@@ -514,3 +514,49 @@ body {
   font-family: 'Berkshire Swash', cursive;
   margin-bottom: 6px;
 }
+
+@media (max-width: 570px) {
+  .home--work-section {
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+  .home--work-section-img img {
+    width: 300px;
+    margin-left: -20px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+
+  .form-input {
+    width: 350px;
+  }
+  .content-container {
+    width:300px;
+  }
+
+  .question {
+    font-size: 0.9rem;;
+  }
+
+  .answer {
+    font-size: 0.8rem;
+    padding: 10px 0 0 0 ;
+  }
+
+  .about .sign-up-text {
+    text-align: center;
+  }
+
+  .support .sign-up-text {
+    display: none;
+  }
+  .notes-aside {
+    max-width: 90px;
+  }
+
+  .logout-btn {
+    font-size: 0.7rem;
+  }
+}

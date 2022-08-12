@@ -21,7 +21,6 @@ export default function Support() {
             <p><a className="link" href={thirdLink}>Contact to the App Creator {'(me <3)'}</a></p>            
           </div>
         </div>
-        {!user && <div className=" support-text"><SignUptext className="home-text" /></div>}
         </div>
     )
 }
