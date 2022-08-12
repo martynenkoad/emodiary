@@ -72,9 +72,9 @@ const updateNote = async (req, res) => {
         return res.status(404).json({ error: "I guess this note was lost somewhere... Or has never existed - like my relationships." })
     } else {
         const temp = await Note.find({ _id: id })
-        if(!temp.title) { 
-            return res.status(400).json({ error: 'Oops! I think your note deserves to have a name... :(' })
-        }
+//        if(!temp.title) { 
+//            return res.status(400).json({ error: 'Oops! I think your note deserves to have a name... :(' })
+//        }
         const newNote = await Note.findOneAndUpdate({ _id: id }, {
             ...req.body
         })
