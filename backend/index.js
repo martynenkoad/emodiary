@@ -3,12 +3,10 @@ require('dotenv').config()
 
 // require modules
 const express = require('express')
-const mongoose = require('mongoose')
 const cors = require('cors')
 
-// require routes
-const userRoutes = require('./routes/user')
-const noteRoutes = require('./routes/note')
+const initRoutes = require('./routes/index')
+const initMongo = require('./lib/init-mongo')
 
 // create express app
 const app = express()
@@ -18,42 +16,26 @@ app.use(express.json())
 
 // use cors to deal with cross-origin policy
 app.use(
-    cors({
-        origin: '*'
-    })
+  cors({
+    origin: '*'
+  })
 )
 
+// Log requests
 app.use((req, res, next) => {
-    console.log(req.method, req.path)
-    next()
+  console.log(req.method, req.path)
+  next()
 })
 
-// routes
-app.use('/api/user', userRoutes)
-app.use('/api/note', noteRoutes)
+/**
+ * Start listening on the configured port.
+ */
+const startServer = () => {
+  const appPort = process.env.PORT || 4000
+  app.listen(appPort, () => {
+    console.log('The server is running on port:', appPort)
+  })
+}
 
-// connection string
-//mongoURI = 'mongodb+srv://nastya:eIudKM89AJO51exB@cluster0.we8xbbc.mongodb.net/?retryWrites=true&w=majority'
-
-mongoUrl = process.env.MONGO_URL
-
-mongoose.Promise = global.Promise;
-
-console.log('So, now i am trying to connect to:', mongoUrl);
-    
-    mongoose.connect(mongoUrl, { useUnifiedTopology: true })
-    .then(() => { console.log('Connected to MongoDB: ', mongoUrl) }) 
-    .catch((err) => { console.error('MongoDB connection error: ', err); })
-
-// // connect to db
-// mongoose.connect(mongoURI)
-//     .then(() => {
-//         console.log('Connected to DB')
-
-//         app.listen(4000, () => {
-//             console.log(`Server listening on port ${process.env.PORT}....`)
-//         })
-//     })
-//     .catch((error) => {
-//         console.log(error)
-//     })
+initRoutes(app)
+initMongo(app, startServer)
