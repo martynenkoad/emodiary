@@ -4,6 +4,7 @@ cd ./front
 
 npm i
 npm run build
+cp ../build-files/.htaccess ./build/.htaccess
 
 cd ../backend
 npm i
